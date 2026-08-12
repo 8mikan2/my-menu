@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>我的商品菜單</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- 頂部標題區 -->
+  <header>
+    <h1 id="group-title">載入中...</h1>
+  </header>
+
+  <!-- 中間的商品放這裡 -->
+  <main class="product-grid" id="product-list"></main>
+
+  <!-- 右下角懸浮購物車按鈕 -->
+  <div class="cart-btn" onclick="toggleCart()">
+    🛒 <span id="cart-count">0</span>
+  </div>
+
+  <!-- 購物車跳頁/彈窗 -->
+  <div class="cart-modal" id="cart-modal">
+    <div class="cart-header">
+      <h2>我的購物車</h2>
+      <button onclick="toggleCart()">✕</button>
+    </div>
+    <div class="cart-body" id="cart-items"></div>
+    <div class="cart-footer">
+      <p>總計金額：$<span id="cart-total">0</span></p>
+      <button onclick="checkout()">確認訂購（傳送 LINE）</button>
+    </div>
+  </div>
+
+  <!-- 讀取 JavaScript 程式檔 -->
+  <script src="app.js"></script>
+</body>
+</html>
