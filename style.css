@@ -79,19 +79,26 @@ body {
   padding: 15px 20px;
   background: white;
   border-bottom: 1px solid #eee;
-  text-align: center;
   position: relative;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  min-height: 24px;
 }
 
+/* 強制標題絕對居中 */
 .shop-header h2 {
-  margin: 0 auto;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
   font-size: 18px;
+  white-space: nowrap;
 }
 
 .back-home {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
   color: #666;
   text-decoration: none;
   font-size: 13px;
@@ -100,6 +107,10 @@ body {
 
 /* 右上角極簡搜尋框 */
 .search-box {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
   display: flex;
   align-items: center;
   border-bottom: 1px solid #333;
@@ -111,7 +122,7 @@ body {
   outline: none;
   background: transparent;
   font-size: 13px;
-  width: 120px;
+  width: 100px;
   text-align: right;
   padding-right: 5px;
 }
@@ -174,15 +185,15 @@ body {
   background: #fff;
 }
 
-/* 左下角固定鴨鴨 300x300 */
+/* 左下角固定鴨鴨 */
 .duck-img {
   position: fixed;
   left: 10px;
   bottom: 0;
-  width: 300px;
-  height: 300px;
+  width: 240px;
+  height: 240px;
   object-fit: contain;
-  pointer-events: none; /* 防止遮擋點擊事件 */
+  pointer-events: none;
   z-index: 10;
 }
 
