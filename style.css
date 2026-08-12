@@ -75,10 +75,57 @@ body {
 }
 
 /* 2. 開團總覽大廳樣式 */
+.shop-header {
+  padding: 15px 20px;
+  background: white;
+  border-bottom: 1px solid #eee;
+  text-align: center;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.shop-header h2 {
+  margin: 0 auto;
+  font-size: 18px;
+}
+
+.back-home {
+  color: #666;
+  text-decoration: none;
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+/* 右上角極簡搜尋框 */
+.search-box {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #333;
+  padding-bottom: 2px;
+}
+
+.search-box input {
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 13px;
+  width: 120px;
+  text-align: right;
+  padding-right: 5px;
+}
+
+.search-icon {
+  font-size: 12px;
+  color: #333;
+}
+
+/* 總覽頁容器與左下角鴨鴨 */
 .catalog-container {
   max-width: 800px;
   margin: 20px auto;
-  padding: 0 15px;
+  padding: 0 15px 120px 15px;
 }
 
 .section-title {
@@ -127,29 +174,24 @@ body {
   background: #fff;
 }
 
+/* 左下角固定鴨鴨 300x300 */
+.duck-img {
+  position: fixed;
+  left: 10px;
+  bottom: 0;
+  width: 300px;
+  height: 300px;
+  object-fit: contain;
+  pointer-events: none; /* 防止遮擋點擊事件 */
+  z-index: 10;
+}
+
 /* 3. 商品頁樣式 */
 .top-announcement {
   background-color: #333333;
   color: #ffffff;
   text-align: center;
   padding: 8px 12px;
-  font-size: 13px;
-}
-
-.shop-header {
-  padding: 15px 20px;
-  background: white;
-  border-bottom: 1px solid #eee;
-  text-align: center;
-  position: relative;
-}
-
-.back-home {
-  position: absolute;
-  left: 15px;
-  top: 18px;
-  color: #666;
-  text-decoration: none;
   font-size: 13px;
 }
 
