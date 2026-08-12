@@ -1,6 +1,9 @@
 // 儲存購物車裡面的商品
 let cart = [];
 
+// 預設的 Logo 圖片檔名（自動使用你上傳的 logo.png）
+const defaultLogo = 'logo.png'; 
+
 // 1. 網頁一打開，先看網址有沒有 ?group=分類名稱
 const urlParams = new URLSearchParams(window.location.search);
 const currentGroup = urlParams.get('group') || '全部分類';
@@ -33,14 +36,19 @@ function renderProducts(products) {
     return;
   }
 
-  container.innerHTML = products.map(item => `
-    <div class="product-card">
-      <img src="${item.image}" alt="${item.name}">
-      <h3>${item.name}</h3>
-      <div class="price">$${item.price}</div>
-      <button onclick="addToCart('${item.id}', '${item.name}', ${item.price})">加入購物車</button>
-    </div>
-  `).join('');
+  container.innerHTML = products.map(item => {
+    // 判斷：如果商品沒有圖片，就自動顯示你的 Logo
+    const imgSrc = (item.image && item.image.trim() !== "") ? item.image : defaultLogo;
+
+    return `
+      <div class="product-card">
+        <img src="${imgSrc}" alt="${item.name}">
+        <h3>${item.name}</h3>
+        <div class="price">$${item.price}</div>
+        <button onclick="addToCart('${item.id}', '${item.name}', ${item.price})">加入購物車</button>
+      </div>
+    `;
+  }).join('');
 }
 
 // 4. 按下「加入購物車」的動作
@@ -101,7 +109,6 @@ function checkout() {
   // 複製文字並跳出提示
   navigator.clipboard.writeText(orderText).then(() => {
     alert("已自動複製訂單文字！按下確定後將引導至 LINE，請直接貼上訊息給官方帳號。");
-    // 這裡可以換成你的官方 LINE 連結
     window.open('https://line.me', '_blank');
   });
 }
