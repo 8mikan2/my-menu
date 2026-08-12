@@ -1,14 +1,10 @@
 let cart = [];
+let allCategories = {};
 const defaultLogo = 'logo.png'; 
 
 const urlParams = new URLSearchParams(window.location.search);
 const currentView = urlParams.get('view');
 const currentGroup = urlParams.get('group');
-
-// 判斷要顯示哪一個頁面：
-// 1. 如果有 group 參數 ➔ 顯示「單一團購商品頁」
-// 2. 如果 view === 'catalog' ➔ 顯示「最新開團總覽頁」
-// 3. 其他 ➔ 顯示「首頁連結頁」
 
 if (currentGroup) {
   showPage('shop-view');
@@ -31,24 +27,46 @@ function loadCatalogData() {
   fetch('goods.json')
     .then(res => res.json())
     .then(data => {
-      const container = document.getElementById('group-list');
-      const categories = data.categories || {};
-      
-      let html = '';
-      for (let groupName in categories) {
-        if (groupName === '全部分類') continue;
-        const info = categories[groupName];
-        const coverImg = (info.banner && info.banner.trim() !== "") ? info.banner : defaultLogo;
-
-        html += `
-          <a href="?group=${encodeURIComponent(groupName)}" class="group-card">
-            <img src="${coverImg}" alt="${groupName}">
-            <div class="group-name">${groupName}</div>
-          </a>
-        `;
-      }
-      container.innerHTML = html || '<p style="text-align:center; grid-column:1/-1;">目前暫無開團活動喔！</p>';
+      allCategories = data.categories || {};
+      renderGroupCards(allCategories);
     });
+}
+
+// 繪製開團卡片
+function renderGroupCards(categories) {
+  const container = document.getElementById('group-list');
+  let html = '';
+  
+  for (let groupName in categories) {
+    if (groupName === '全部分類') continue;
+    const info = categories[groupName];
+    const coverImg = (info.banner && info.banner.trim() !== "") ? info.banner : defaultLogo;
+
+    html += `
+      <a href="?group=${encodeURIComponent(groupName)}" class="group-card">
+        <img src="${coverImg}" alt="${groupName}">
+        <div class="group-name">${groupName}</div>
+      </a>
+    `;
+  }
+  container.innerHTML = html || '<p style="text-align:center; grid-column:1/-1;">目前暫無開團活動喔！</p>';
+}
+
+// 關鍵字搜尋過濾
+function filterGroups() {
+  const query = document.getElementById('search-input').value.toLowerCase().trim();
+  if (!query) {
+    renderGroupCards(allCategories);
+    return;
+  }
+
+  const filtered = {};
+  for (let groupName in allCategories) {
+    if (groupName.toLowerCase().includes(query)) {
+      filtered[groupName] = allCategories[groupName];
+    }
+  }
+  renderGroupCards(filtered);
 }
 
 // 載入「單一團購商品頁」
@@ -58,12 +76,10 @@ function loadShopData(groupName) {
   fetch('goods.json')
     .then(res => res.json())
     .then(data => {
-      // 1. 設定頂部公告與大圖
       const catInfo = (data.categories && data.categories[groupName]) ? data.categories[groupName] : {};
       document.getElementById('top-announcement').innerText = catInfo.announcement || '📢 歡迎光臨選購！';
       document.getElementById('banner-img').src = (catInfo.banner && catInfo.banner.trim() !== "") ? catInfo.banner : defaultLogo;
 
-      // 2. 顯示商品
       const productsData = data.products || (Array.isArray(data) ? data : []);
       const filteredGoods = productsData.filter(item => item.group === groupName);
 
