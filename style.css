@@ -2,7 +2,7 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #fdfbf7; /* 溫馨極簡日系偏白背景 */
+  background-color: #fdfbf7;
   color: #333333;
 }
 
@@ -35,7 +35,46 @@ body {
 .brand-id {
   font-size: 14px;
   color: #888888;
+  margin-bottom: 15px;
+}
+
+/* 門市資訊與簡介排版 */
+.store-info {
+  background: #ffffff;
+  border: 1px solid #eaeaea;
+  border-radius: 12px;
+  padding: 16px;
   margin-bottom: 25px;
+  font-size: 13px;
+  line-height: 1.6;
+  text-align: left;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+}
+
+.store-slogan {
+  text-align: center;
+  font-weight: bold;
+  color: #444;
+  margin: 0 0 12px 0;
+  padding-bottom: 10px;
+  border-bottom: 1px dashed #eee;
+}
+
+.store-details p {
+  margin: 6px 0;
+  color: #555;
+}
+
+.sub-text {
+  font-size: 12px;
+  color: #888;
+  padding-left: 22px;
+}
+
+.notice {
+  font-size: 12px;
+  color: #888;
+  margin-top: 8px !important;
 }
 
 /* 按鈕區域 */
@@ -43,7 +82,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  margin-bottom: 30px;
+  margin-bottom: 25px;
 }
 
 .social-btn {
@@ -56,6 +95,7 @@ body {
   text-decoration: none;
   font-weight: 500;
   font-size: 15px;
+  text-align: center;
   transition: all 0.2s ease;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
 }
@@ -65,7 +105,6 @@ body {
   transform: translateY(-1px);
 }
 
-/* 預留社群按鈕樣式 */
 .social-btn.community {
   background-color: #fafafa;
   color: #aaa;
@@ -82,6 +121,7 @@ body {
   text-decoration: none;
   font-size: 16px;
   font-weight: bold;
+  text-align: center;
 }
 
 /* ==================== 商品頁樣式 ==================== */
@@ -148,7 +188,6 @@ body {
   width: 100%;
 }
 
-/* 購物車按鈕與彈窗 */
 .cart-btn {
   position: fixed;
   bottom: 20px;
