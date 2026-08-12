@@ -8,9 +8,9 @@ body {
 
 /* 首頁容器 */
 .home-container {
-  max-width: 440px;
+  max-width: 420px;
   margin: 0 auto;
-  padding: 24px 20px 40px 20px;
+  padding: 30px 20px 40px 20px;
   text-align: center;
   box-sizing: border-box;
 }
@@ -21,14 +21,14 @@ body {
   max-width: 360px;
   height: auto;
   border-radius: 12px;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
 }
 
-/* 品牌名稱 */
+/* 品牌名稱與 Slogan */
 .brand-info h1 {
   font-size: 20px;
   font-weight: 600;
-  margin: 8px 0 2px 0;
+  margin: 10px 0 2px 0;
   color: #222222;
   letter-spacing: 0.5px;
 }
@@ -36,62 +36,27 @@ body {
 .brand-id {
   font-size: 13px;
   color: #888888;
-  margin-bottom: 16px;
-}
-
-/* 門市資訊極簡化排版 */
-.store-info {
-  margin-bottom: 24px;
-  font-size: 13px;
-  line-height: 1.6;
-  color: #555555;
-  text-align: center;
-}
-
-.store-slogan {
-  font-size: 13px;
-  font-weight: 500;
-  color: #444444;
   margin: 0 0 12px 0;
-  letter-spacing: 0.3px;
 }
 
-.store-details {
-  display: inline-block;
-  text-align: left;
-  background: rgba(255, 255, 255, 0.6);
-  border-radius: 8px;
-  padding: 10px 14px;
-  font-size: 12px;
-  color: #666666;
-}
-
-.store-details p {
-  margin: 3px 0;
-}
-
-.sub-text {
-  font-size: 11px;
-  color: #999999;
-}
-
-.notice {
-  font-size: 11px;
-  color: #aaaaaa;
-  margin-top: 6px !important;
+.brand-slogan {
+  font-size: 13px;
+  color: #555555;
+  line-height: 1.6;
+  margin: 0 0 28px 0;
 }
 
 /* 按鈕區域 */
 .social-links {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  margin-bottom: 20px;
+  gap: 12px;
+  margin-bottom: 24px;
 }
 
 .social-btn {
   display: block;
-  padding: 13px;
+  padding: 14px;
   background-color: #ffffff;
   border: 1px solid #e5e5e5;
   border-radius: 10px;
@@ -101,10 +66,12 @@ body {
   font-size: 14px;
   text-align: center;
   transition: all 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.02);
 }
 
 .social-btn:hover {
   background-color: #f7f7f7;
+  transform: translateY(-1px);
 }
 
 .social-btn.community {
@@ -116,7 +83,7 @@ body {
 /* 查看選單入口按鈕 */
 .enter-menu-btn {
   display: block;
-  padding: 14px;
+  padding: 15px;
   background-color: #222222;
   color: #ffffff;
   border-radius: 10px;
