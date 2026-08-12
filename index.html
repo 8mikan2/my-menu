@@ -3,38 +3,76 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>我的商品菜單</title>
+  <title>捌桔兔 - 日系雜貨、玩具</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- 頂部標題區 -->
-  <header>
-    <h1 id="group-title">載入中...</h1>
-  </header>
+  <!-- ==================== 1. 首頁形象區塊 (當沒有選分類時顯示) ==================== -->
+  <div id="home-view" class="home-container">
+    <!-- 上方品牌形象圖片 -->
+    <div class="home-banner">
+      <img src="text_youkoso.png" alt="歡迎光臨 捌桔兔">
+    </div>
 
-  <!-- 中間的商品放這裡 -->
-  <main class="product-grid" id="product-list"></main>
+    <!-- 品牌標題與簡介 -->
+    <div class="brand-info">
+      <h1>捌桔兔 - 日系雜貨、玩具</h1>
+      <p class="brand-id">@8mikan2</p>
+    </div>
 
-  <!-- 右下角懸浮購物車按鈕 -->
-  <div class="cart-btn" onclick="toggleCart()">
-    🛒 <span id="cart-count">0</span>
+    <!-- 社群與賣場連結按鈕區 -->
+    <div class="social-links">
+      <a href="https://www.instagram.com/8mikan2/" target="_blank" class="social-btn instagram">
+        <span>Instagram</span>
+      </a>
+      <a href="https://www.threads.com/@8mikan2" target="_blank" class="social-btn threads">
+        <span>Threads</span>
+      </a>
+      <!-- 社群預留位置 -->
+      <a href="#" class="social-btn community disabled" onclick="alert('社群籌備中，敬請期待！'); return false;">
+        <span>官方社群（籌備中）</span>
+      </a>
+    </div>
+
+    <!-- 進入商品選單的捷徑按鈕 -->
+    <div class="menu-enter-area">
+      <a href="?group=全部分類" class="enter-menu-btn">🛍️ 查看商品選單</a>
+    </div>
   </div>
 
-  <!-- 購物車跳頁/彈窗 -->
-  <div class="cart-modal" id="cart-modal">
-    <div class="cart-header">
-      <h2>我的購物車</h2>
-      <button onclick="toggleCart()">✕</button>
+  <!-- ==================== 2. 商品選單區塊 (當有選分類時顯示) ==================== -->
+  <div id="shop-view" style="display: none;">
+    <!-- 頂部返回首頁連結與標題 -->
+    <header class="shop-header">
+      <a href="./" class="back-home">‹ 返回首頁</a>
+      <h2 id="group-title">載入中...</h2>
+    </header>
+
+    <!-- 商品列表 -->
+    <main class="product-grid" id="product-list"></main>
+
+    <!-- 右下角購物車按鈕 -->
+    <div class="cart-btn" onclick="toggleCart()">
+      🛒 <span id="cart-count">0</span>
     </div>
-    <div class="cart-body" id="cart-items"></div>
-    <div class="cart-footer">
-      <p>總計金額：$<span id="cart-total">0</span></p>
-      <button onclick="checkout()">確認訂購（傳送 LINE）</button>
+
+    <!-- 購物車視窗 -->
+    <div class="cart-modal" id="cart-modal">
+      <div class="cart-content">
+        <div class="cart-header">
+          <h2>我的購物車</h2>
+          <button onclick="toggleCart()" style="background:none; border:none; font-size:20px; cursor:pointer;">✕</button>
+        </div>
+        <div class="cart-body" id="cart-items" style="padding: 15px 0;"></div>
+        <div class="cart-footer">
+          <p style="font-weight:bold;">總計金額：$<span id="cart-total">0</span></p>
+          <button onclick="checkout()">確認訂購（傳送 LINE）</button>
+        </div>
+      </div>
     </div>
   </div>
 
-  <!-- 讀取 JavaScript 程式檔 -->
   <script src="app.js"></script>
 </body>
 </html>
