@@ -1,16 +1,35 @@
-[
-  {
-    "id": "p001",
-    "group": "布丁狗30th郵局聯名",
-    "name": "布丁狗聯名造型郵箱娃娃",
-    "price": 680,
-    "image": ""
+{
+  "categories": {
+    "布丁狗30th郵局聯名": {
+      "announcement": "📢 0829收單 12月下出貨 | 日本境內運費同車平分",
+      "banner": "https://raw.githubusercontent.com/8mikan2/my-menu/main/logo.png"
+    },
+    "吉伊卡哇手造新品": {
+      "announcement": "📢 數量有限 售完為止 | 預計 10 月到貨",
+      "banner": "https://raw.githubusercontent.com/8mikan2/my-menu/main/logo.png"
+    }
   },
-  {
-    "id": "p002",
-    "group": "布丁狗30th郵局聯名",
-    "name": "布丁狗紀念明信片組",
-    "price": 250,
-    "image": ""
-  }
-]
+  "products": [
+    {
+      "id": "p1",
+      "name": "布丁狗 30週年紀念郵差公仔",
+      "price": 520,
+      "group": "布丁狗30th郵局聯名",
+      "image": ""
+    },
+    {
+      "id": "p2",
+      "name": "布丁狗 聯名紀念明信片組",
+      "price": 180,
+      "group": "布丁狗30th郵局聯名",
+      "image": ""
+    },
+    {
+      "id": "p3",
+      "name": "吉伊卡哇 手造娃娃",
+      "price": 450,
+      "group": "吉伊卡哇手造新品",
+      "image": ""
+    }
+  ]
+}
