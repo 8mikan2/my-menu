@@ -8,20 +8,17 @@
 </head>
 <body>
 
-  <!-- ==================== 1. 首頁形象區塊 (當沒有選分類時顯示) ==================== -->
+  <!-- ==================== 1. 首頁連結頁 ==================== -->
   <div id="home-view" class="home-container">
-    <!-- 上方品牌形象圖片 -->
     <div class="home-banner">
       <img src="text_youkoso.png" alt="歡迎光臨 捌桔兔">
     </div>
 
-    <!-- 品牌標題與簡介 -->
     <div class="brand-info">
       <h1>捌桔兔 - 日系雜貨、玩具</h1>
       <p class="brand-id">@8mikan2</p>
     </div>
 
-    <!-- 社群與賣場連結按鈕區 -->
     <div class="social-links">
       <a href="https://www.instagram.com/8mikan2/" target="_blank" class="social-btn instagram">
         <span>Instagram</span>
@@ -29,30 +26,51 @@
       <a href="https://www.threads.com/@8mikan2" target="_blank" class="social-btn threads">
         <span>Threads</span>
       </a>
-      <!-- 社群預留位置 -->
       <a href="#" class="social-btn community disabled" onclick="alert('社群籌備中，敬請期待！'); return false;">
         <span>官方社群（籌備中）</span>
       </a>
     </div>
 
-    <!-- 進入商品選單的捷徑按鈕 -->
     <div class="menu-enter-area">
-      <a href="?group=全部分類" class="enter-menu-btn">🛍️ 查看商品選單</a>
+      <a href="?view=catalog" class="enter-menu-btn">🛍️ 查看商品選單</a>
     </div>
   </div>
 
-  <!-- ==================== 2. 商品選單區塊 (當有選分類時顯示) ==================== -->
-  <div id="shop-view" style="display: none;">
-    <!-- 頂部返回首頁連結與標題 -->
+
+  <!-- ==================== 2. 選單總覽頁（最新開團大廳） ==================== -->
+  <div id="catalog-view" style="display: none;">
     <header class="shop-header">
       <a href="./" class="back-home">‹ 返回首頁</a>
+      <h2>捌桔兔 ✦ 最新開團</h2>
+    </header>
+
+    <div class="catalog-container">
+      <div class="section-title">最新開團</div>
+      <!-- 自動渲染團購卡片區 -->
+      <div class="group-grid" id="group-list"></div>
+    </div>
+  </div>
+
+
+  <!-- ==================== 3. 單一團購商品頁 ==================== -->
+  <div id="shop-view" style="display: none;">
+    <!-- 頂部公告 -->
+    <div class="top-announcement" id="top-announcement">📢 歡迎選購</div>
+
+    <header class="shop-header">
+      <a href="?view=catalog" class="back-home">‹ 返回開團總覽</a>
       <h2 id="group-title">載入中...</h2>
     </header>
+
+    <!-- 宣傳大圖 -->
+    <div class="banner-container">
+      <img src="logo.png" id="banner-img" alt="團購宣傳圖">
+    </div>
 
     <!-- 商品列表 -->
     <main class="product-grid" id="product-list"></main>
 
-    <!-- 右下角購物車按鈕 -->
+    <!-- 右下角購物車 -->
     <div class="cart-btn" onclick="toggleCart()">
       🛒 <span id="cart-count">0</span>
     </div>
